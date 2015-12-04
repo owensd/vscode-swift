@@ -1,0 +1,181 @@
+{
+	"scopeName": "source.swift",
+	"name": "Swift",
+	"comment": "Swift language",
+	"fileTypes": [
+		"swift"
+	],
+	"patterns": [
+		{
+			"comment": "Block Comments",
+			"begin": "/\\*",
+			"captures": {
+				"0": {
+					"name": "punctuation.definition.comment.swift"
+				}
+			},
+			"end": "\\*/",
+			"name": "comment.block.swift"
+		},
+		{
+			"comment": "Line comments",
+			"begin": "//",
+			"captures": {
+				"0": {
+					"name": "punctuation.definition.comment.swift"
+				}
+			},
+			"end": "$",
+			"name": "comment.line.swift"
+		},
+		{ "include": "#source" }
+	],
+	"repository": {
+		
+		"source": {
+			"patterns": [
+				{ "include": "#statements" }
+			]
+		},
+		
+		"statements": {
+			"patterns": [
+				{ "include": "#expression" },
+				{ "include": "#declaration" },
+				{ "include": "#loop-statement" },
+				{ "include": "#branch-statement" },
+				{ "include": "#labeled-statement" },
+				{ "include": "#control-transfer-statement" },
+				{ "include": "#defer-statement" },
+				{ "include": "#do-statement" },
+				{ "include": "#compiler-control-statement" }
+			]
+		},
+		
+		"expression": {
+			"patterns": [
+				
+			]
+		},
+		
+		"declaration": {
+			"patterns": [
+				{ "include": "#import-decl" }
+			]
+		},
+		
+		"import-decl": {
+			"patterns": [
+				
+			]
+		},
+
+		"loop-statement": {
+			"patterns": [
+				
+			]
+		},
+
+		"labeled-statement": {
+			"patterns": [
+				
+			]
+		},
+
+		"control-transfer-statement": {
+			"patterns": [
+				
+			]
+		},
+
+		"defer-statement": {
+			"patterns": [
+				
+			]
+		},
+
+		"do-statement": {
+			"patterns": [
+				
+			]
+		},
+
+		"compiler-control-statement": {
+			"patterns": [
+				
+			]
+		},
+
+		
+		"keywords": {
+			"patterns": [
+				{
+					"name": "keyword.declarations.swift",
+					"match": "\\b(class|deinit|enum|extension|func|import|init|inout|internal|let|operator|private|protocol|public|static|struct|subscript|typealias|var)\\b"
+				},
+				{
+					"name": "keyword.statements.swift",
+					"match": "\\b(break|case|continue|default|defer|do|else|fallthrough|for|guard|if|in|repeat|return|switch|where|while)\\b"
+				},
+				{
+					"name": "keyword.expressions.swift",
+					"match": "\\b(as|catch|dynamicType|false|is|nil|rethrows|super|self|Self|throw|throws|true|try|__COLUMN__|__FILE__|__FUNCTION__|__LINE__)\\b"
+				},
+				{
+					"name": "keyword.contextual.swift",
+					"match": "\\b(associativity|convenience|dynamic|didSet|final|get|infix|indirect|lazy|left|mutating|none|nonmutating|optional|override|postfix|precedence|prefix|Protocol|required|right|set|Type|unowned|weak|willSet)\\b"
+				}
+			]
+		},
+		"punctuation": {
+			"patterns": [
+				{
+					"name": "keyword.operator.swift",
+					"match": "\\.|,|:|;|=|@|#|&|->|`|\\?|!|\\(|\\)|\\{|\\}|\\[|\\]"
+				},
+				{
+					"name": "keyword.operator.swift",
+					"match": "\\b_\\b"
+				}
+			]
+		},
+		"operators": {
+			"patterns": [
+				{
+					"name": "keyword.operator.custom.swift",
+					"match": "(/|=|-|\\+|!|\\*|%|<|>|&|\\||\\^|~|\\?­)+"
+				}
+			]
+		},
+		"strings": {
+			"patterns": [
+				{
+					"name": "string.quoted.double.swift",
+					"begin": "\"",
+					"beginCaptures": {
+						"0": {
+							"name": "punctuation.definition.string.begin.swift"
+						}
+					},
+					"end": "\"",
+					"endCaptures": {
+						"0": {
+							"name": "punctuation.definition.string.end.swift"
+						}
+					},
+					"patterns": [
+						{ "include": "#string_escaped_char" }
+					]
+				}
+			]
+		},
+		"string_escaped_char": {
+			"patterns": [
+				{
+					"name": "constant.character.escape.swift",
+					"match": "\\\\([0-7]{3}|[abfnrtv\\\\'\"]|x[0-9a-fA-F]{2}|u[0-9a-fA-F]{4}|U[0-9a-fA-F]{8})"
+				}
+			]
+		}
+	}
+}

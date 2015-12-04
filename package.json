@@ -1,0 +1,218 @@
+{
+	"name": "Swift",
+	"version": "0.0.1",
+	"publisher": "owensd.io",
+	"description": "Swift language support for Visual Studio Code",
+	"author": {
+		"name": "David Owens II - owensd.io"
+	},
+	"icon": "images/SwiftIcon.png",
+	"categories": [
+		"Languages",
+		"Snippets",
+		"Linters",
+		"Debuggers"
+	],
+	"galleryBanner": {
+		"color": "#F05138",
+		"theme": "light"
+	},
+	"private": true,
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/owensd/vscode-swift.git"
+	},
+	"scripts": {
+		"vscode:prepublish": "node ./node_modules/vscode/bin/compile",
+		"compile": "node ./node_modules/vscode/bin/compile -watch -p ./"
+	},
+	"extensionDependencies": [
+		"vscode.swift"
+	],
+	"dependencies": {
+	},
+	"devDependencies": {
+		"vscode": "0.10.x",
+		"fs-extra": "^0.26.0",
+		"typescript": "^1.6.2"
+	},
+	"engines": {
+		"vscode": "0.10.x"
+	},
+	"activationEvents": [
+		"onLanguage:swift",
+		"onCommand:swift.swiftpath",
+		"onCommand:swift.test.cursor",
+		"onCommand:swift.test.module",
+		"onCommand:swift.test.file"
+	],
+	"main": "./out/swiftMain",
+	"contributes": {
+		"languages": [
+			{
+				"id": "swift",
+				"extensions": [
+					".swift"
+				],
+				"aliases": [
+					"Swift"
+				]
+			}
+		],
+		"grammars": [
+			{
+				"language": "swift",
+				"path": "./syntaxes/swift.json",
+				"scopeName": "source.swift"
+			}
+		],
+		"snippets": [
+			{
+				"language": "swift",
+				"path": "./snippets/swift.json"
+			}
+		],
+		"commands": [
+			{
+				"command": "swift.swiftpath",
+				"title": "Swift: Current SWIFTPATH",
+				"description": "See the currently set SWIFTPATH."
+			},
+			{
+				"command": "swift.test.cursor",
+				"title": "Swift: Run test at cursor",
+				"description": "Runs a unit test at the cursor."
+			},
+			{
+				"command": "swift.test.module",
+				"title": "Swift: Run tests in current module",
+				"description": "Runs all unit tests in the module of the current file."
+			},
+			{
+				"command": "swift.test.file",
+				"title": "Swift: Run tests in file",
+				"description": "Runs all unit tests in the current file."
+			}
+		],
+		"debuggers": [
+			{
+				"type": "swift",
+				"label": "Swift",
+				"enableBreakpointsFor": {
+					"languageIds": [
+						"swift"
+					]
+				},
+				"program": "./out/debugAdapter/swiftDebug.js",
+				"runtime": "node",
+				"initialConfigurations": [
+					{
+						"name": "Launch main.swift",
+						"type": "swift",
+						"request": "launch",
+						"mode": "debug",
+						"program": ".",
+						"env": {},
+						"args": []
+					}
+				],
+				"configurationAttributes": {
+					"launch": {
+						"required": [],
+						"properties": {
+							"program": {
+								"type": "string",
+								"description": "Workspace relative path to the program folder (or any file within that folder) when in 'debug' or 'test' mode, and to the pre-built binary file to debug in 'exec' mode.",
+								"default": "."
+							},
+							"mode": {
+								"type": "string",
+								"description": "One of 'debug', 'test', 'exec'.",
+								"default": "debug"
+							},
+							"stopOnEntry": {
+								"type": "boolean",
+								"description": "[NOT YET WORKING] Automatically stop program after launch.",
+								"default": true
+							},
+							"args": {
+								"type": "array",
+								"description": "Command line arguments passed to the program.",
+								"items": {
+									"type": "string"
+								},
+								"default": []
+							},
+							"cwd": {
+								"type": "string",
+								"description": "Workspace relative or absolute path to the working directory of the program being debugged. Default is the current workspace.",
+								"default": "."
+							},
+							"env": {
+								"type": "object",
+								"description": "Environment variables passed to the program.",
+								"default": {}
+							},
+							"buildFlags": {
+								"type": "string",
+								"description": "Build flags, to be passed to the Go compiler.",
+								"default": ""
+							},
+							"init": {
+								"type": "string",
+								"description": "Init file, executed by the terminal client.",
+								"default": ""
+							}
+						}
+					}
+				}
+			}
+		],
+		"configuration": {
+			"type": "object",
+			"title": "Swift configuration",
+			"properties": {
+				"swift.buildOnSave": {
+					"type": "boolean",
+					"default": true,
+					"description": "Run 'swift build'/'swift test' on save."
+				},
+				"swift.lintOnSave": {
+					"type": "boolean",
+					"default": true,
+					"description": "Run 'swiftlint' on save."
+				},
+				"swift.vetOnSave": {
+					"type": "boolean",
+					"default": true,
+					"description": "Run 'swift tool vet' on save."
+				},
+				"swift.formatTool": {
+					"type": "string",
+					"default": "goreturns",
+					"description": "Pick 'gofmt', 'goimports' or 'goreturns' to run on format."
+				},
+				"swift.swiftpath": {
+					"type": "string",
+					"default": null,
+					"description": "Specifies the SWIFTPATH to use when no environment variable is set."
+				},
+				"swift.swiftroot": {
+					"type": "string",
+					"default": null,
+					"description": "Specifies the SWIFTROOT to use when no environment variable is set."
+				},
+				"swift.formatOnSave": {
+					"type": "boolean",
+					"default": false,
+					"description": "[EXPERIMENTAL] Run formatting tool on save."
+				},
+				"swift.testTimeout": {
+					"type": "string",
+					"default": "30s",
+					"description": "Specifies the timeout for go test in ParseDuration format."
+				}
+			}
+		}
+	}
+}
