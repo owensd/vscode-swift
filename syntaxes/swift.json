@@ -34,78 +34,12 @@
 		
 		"source": {
 			"patterns": [
-				{ "include": "#statements" }
+				{ "include": "#strings" },
+				{ "include": "#keywords" },
+				{ "include": "#punctuation" },
+				{ "include": "#operators" }
 			]
 		},
-		
-		"statements": {
-			"patterns": [
-				{ "include": "#expression" },
-				{ "include": "#declaration" },
-				{ "include": "#loop-statement" },
-				{ "include": "#branch-statement" },
-				{ "include": "#labeled-statement" },
-				{ "include": "#control-transfer-statement" },
-				{ "include": "#defer-statement" },
-				{ "include": "#do-statement" },
-				{ "include": "#compiler-control-statement" }
-			]
-		},
-		
-		"expression": {
-			"patterns": [
-				
-			]
-		},
-		
-		"declaration": {
-			"patterns": [
-				{ "include": "#import-decl" }
-			]
-		},
-		
-		"import-decl": {
-			"patterns": [
-				
-			]
-		},
-
-		"loop-statement": {
-			"patterns": [
-				
-			]
-		},
-
-		"labeled-statement": {
-			"patterns": [
-				
-			]
-		},
-
-		"control-transfer-statement": {
-			"patterns": [
-				
-			]
-		},
-
-		"defer-statement": {
-			"patterns": [
-				
-			]
-		},
-
-		"do-statement": {
-			"patterns": [
-				
-			]
-		},
-
-		"compiler-control-statement": {
-			"patterns": [
-				
-			]
-		},
-
 		
 		"keywords": {
 			"patterns": [
@@ -122,11 +56,37 @@
 					"match": "\\b(as|catch|dynamicType|false|is|nil|rethrows|super|self|Self|throw|throws|true|try|__COLUMN__|__FILE__|__FUNCTION__|__LINE__)\\b"
 				},
 				{
-					"name": "keyword.contextual.swift",
-					"match": "\\b(associativity|convenience|dynamic|didSet|final|get|infix|indirect|lazy|left|mutating|none|nonmutating|optional|override|postfix|precedence|prefix|Protocol|required|right|set|Type|unowned|weak|willSet)\\b"
+					"include": "#operator-decl"
 				}
 			]
 		},
+		
+		"operator-decl": {
+			"patterns": [
+				{
+					"name": "keyword.contextual.swift",
+					"match": "\\b(postfix|infix)\\s+operator\\b"
+				},
+				{
+					"match": "\\{\\s*(precedence\\s+[0-9]{1,3}\\s+)?(associativity)\\s+(left|right|none)\\s+\\}",
+					"captures": {
+						"0": {
+							"name": "keyword.contextual.swift"
+						},
+						"1": {
+							"name": "keyword.contextual.swift"
+						},
+						"2": {
+							"name": "keyword.contextual.swift"
+						},
+						"3": {
+							"name": "keyword.contextual.swift"
+						}
+					}
+				}
+			]
+		},
+		
 		"punctuation": {
 			"patterns": [
 				{
@@ -147,6 +107,7 @@
 				}
 			]
 		},
+		
 		"strings": {
 			"patterns": [
 				{
