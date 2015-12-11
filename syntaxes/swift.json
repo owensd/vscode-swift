@@ -47,8 +47,10 @@
 					"match": "\\b(as|catch|dynamicType|false|is|nil|rethrows|super|self|Self|throw|throws|true|try|__COLUMN__|__FILE__|__FUNCTION__|__LINE__)\\b"
 				},
 				{
-					"include": "#operator-decl"
+					"name": "keyword.contextual.swift",
+					"match": "\\b(convenience|required|private|public|internal|dynamic|didSet|final|get|indirect|lazy|mutating|nonmutating|optional|override|precedence|prefix|Protocol|set|Type|unowned|weak|willSet)\\b"
 				},
+				{ "include": "#operator-decl" },
 				{
 					"name": "meta.class.body.swift",
 					"match": "[`](class|deinit|enum|extension|func|import|init|inout|internal|let|operator|private|protocol|public|static|struct|subscript|typealias|var|break|case|continue|default|defer|do|else|fallthrough|for|guard|if|in|repeat|return|switch|where|while|as|catch|dynamicType|false|is|nil|rethrows|super|self|Self|throw|throws|true|try|__COLUMN__|__FILE__|__FUNCTION__|__LINE__)[`]"

@@ -31,6 +31,15 @@ class SomeSubClass: SomeBaseClass {
     override class func printClassName() {
         print("SomeSubClass")
     }
+
+    convenience init() {}
+    convenience de private init() {}
+    private  convenience  init() {}
+    
+    mutating private func foo() {}
+    override mutating private func foo() {}
+    
+    override nomutating private func foo() {}
 }
 let someInstance: SomeBaseClass = SomeSubClass()
 // The compile-time type of someInstance is SomeBaseClass,
