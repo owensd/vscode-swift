@@ -25,6 +25,7 @@
 		"source": {
 			"patterns": [
 				{ "include": "#strings" },
+				{ "include": "#numbers" },
 				{ "include": "#keywords" },
 				{ "include": "#punctuation" },
 				{ "include": "#operators" }
@@ -138,6 +139,27 @@
 				{
 					"name": "string.interpolated.swift",
 					"match": "\\\\\\(.*\\)"
+				}
+			]
+		},
+		
+		"numbers": {
+			"patterns": [
+				{
+					"name": "number.swift",
+					"match": "\\b[0-9_]+(\\.[0-9_]+)?((e|E)(\\+|-)?[0-9_]+)?\\b"
+				},
+				{
+					"name": "number.binary.swift",
+					"match": "\\b0b[01_]+\\b"
+				},
+				{
+					"name": "number.octal.swift",
+					"match": "\\b0o[0-7_]+\\b"
+				},
+				{
+					"name": "number.hex.swift",
+					"match": "\\b0x[0-9a-fA-F_]+((p|P)(\\+|-)?[0-9a-fA-F_]+)?\\b"
 				}
 			]
 		}
