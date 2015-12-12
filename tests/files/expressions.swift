@@ -26,7 +26,7 @@ func logFunctionName(string: String = __FUNCTION__) {
 func myFunction() {
     logFunctionName() // Prints "myFunction()".
 }
- 
+
 myFunction()
 namedArgs(1, withJay: 2)
 
