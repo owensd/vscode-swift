@@ -7,7 +7,7 @@
 import vscode = require('vscode');
 import fs = require('fs');
 
-import { SWIFT_MODE } from './swiftMode'
+import { SWIFT_MODE } from './mode'
 
 let diagnosticCollection: vscode.DiagnosticCollection;
 

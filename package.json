@@ -46,7 +46,7 @@
 		"onCommand:swift.test.module",
 		"onCommand:swift.test.file"
 	],
-	"main": "./out/swiftMain",
+	"main": "./out/langsrv/main.js",
 	"contributes": {
 		"languages": [
 			{
@@ -103,7 +103,7 @@
 						"swift"
 					]
 				},
-				"program": "./out/debugAdapter/swiftDebug.js",
+				"program": "./out/debugger/main.js",
 				"runtime": "node",
 				"initialConfigurations": [
 					{
