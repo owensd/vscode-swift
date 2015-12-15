@@ -1,0 +1,15 @@
+{
+	"version": "0.1.0",
+	"configurations": [
+		{
+			"name": "Launch Debugger",
+			"type": "node",
+			"request": "launch",
+			"runtimeArgs": ["--harmony"],
+			"program": "../../out/debugger/main.js",
+			"stopOnEntry": false,
+			"args": ["--server=4711"],
+			"sourceMaps": true
+		}
+	]
+}

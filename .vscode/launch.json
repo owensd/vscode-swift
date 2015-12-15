@@ -22,17 +22,6 @@
 			"sourceMaps": true,
 			"outDir": "out",
 			"preLaunchTask": "npm"
-		},
-		{
-			"name": "debug server",
-			"type": "node",
-			"request": "launch",
-			"runtimeArgs": ["--harmony"],
-			"program": "./src/debugger/main.ts",
-			"stopOnEntry": false,
-			"args": ["--server=4711"],
-			"sourceMaps": true,
-			"outDir": "out"
 		}
 	]
 }
