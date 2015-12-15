@@ -4,10 +4,10 @@
 	
 	"configurations": [
 		{
-			"name": "Launch main.swift",
+			"name": "Debug",
 			"type": "swift",
 			"request": "launch",
-			"program": "main.swift"
+			"program": "./out/main"
 		}
 	]
 }
