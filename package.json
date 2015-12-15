@@ -10,8 +10,7 @@
 	"categories": [
 		"Languages",
 		"Snippets",
-		"Linters",
-		"Debuggers"
+		"Linters"
 	],
 	"galleryBanner": {
 		"color": "#F05138",
@@ -93,43 +92,6 @@
 				"command": "swift.test.file",
 				"title": "Swift: Run tests in file",
 				"description": "Runs all unit tests in the current file."
-			}
-		],
-		"debuggers": [
-			{
-				"type": "swift",
-				"label": "Swift",
-				"enableBreakpointsFor": {
-					"languageIds": [ "swift" ]
-				},
-				"program": "./out/debugger/main.js",
-				"runtime": "node",
-				"initialConfigurations": [
-					{
-						"name": "Launch main.swift",
-						"type": "swift",
-						"request": "launch",
-						"mode": "debug",
-						"program": "main.swift"
-					}
-				],
-				"configurationAttributes": {
-					"launch": {
-						"required": ["program"],
-						"properties": {
-							"program": {
-								"type": "string",
-								"description": "Workspace relative path to the program folder",
-								"default": "main.swift"
-							},
-							"stopOnEntry": {
-								"type": "boolean",
-								"description": "[NOT YET WORKING] Automatically stop program after launch.",
-								"default": true
-							}
-						}
-					}
-				}
 			}
 		],
 		"configuration": {
