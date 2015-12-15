@@ -30,6 +30,7 @@
 		"vscode.swift"
 	],
 	"dependencies": {
+		"console-stamp": "^0.2.0"
 	},
 	"devDependencies": {
 		"vscode": "0.10.x",
@@ -99,9 +100,7 @@
 				"type": "swift",
 				"label": "Swift",
 				"enableBreakpointsFor": {
-					"languageIds": [
-						"swift"
-					]
+					"languageIds": [ "swift" ]
 				},
 				"program": "./out/debugger/main.js",
 				"runtime": "node",
@@ -111,57 +110,22 @@
 						"type": "swift",
 						"request": "launch",
 						"mode": "debug",
-						"program": ".",
-						"env": {},
-						"args": []
+						"program": "main.swift"
 					}
 				],
 				"configurationAttributes": {
 					"launch": {
-						"required": [],
+						"required": ["program"],
 						"properties": {
 							"program": {
 								"type": "string",
-								"description": "Workspace relative path to the program folder (or any file within that folder) when in 'debug' or 'test' mode, and to the pre-built binary file to debug in 'exec' mode.",
-								"default": "."
-							},
-							"mode": {
-								"type": "string",
-								"description": "One of 'debug', 'test', 'exec'.",
-								"default": "debug"
+								"description": "Workspace relative path to the program folder",
+								"default": "main.swift"
 							},
 							"stopOnEntry": {
 								"type": "boolean",
 								"description": "[NOT YET WORKING] Automatically stop program after launch.",
 								"default": true
-							},
-							"args": {
-								"type": "array",
-								"description": "Command line arguments passed to the program.",
-								"items": {
-									"type": "string"
-								},
-								"default": []
-							},
-							"cwd": {
-								"type": "string",
-								"description": "Workspace relative or absolute path to the working directory of the program being debugged. Default is the current workspace.",
-								"default": "."
-							},
-							"env": {
-								"type": "object",
-								"description": "Environment variables passed to the program.",
-								"default": {}
-							},
-							"buildFlags": {
-								"type": "string",
-								"description": "Build flags, to be passed to the Go compiler.",
-								"default": ""
-							},
-							"init": {
-								"type": "string",
-								"description": "Init file, executed by the terminal client.",
-								"default": ""
 							}
 						}
 					}
