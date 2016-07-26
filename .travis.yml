@@ -1,4 +1,6 @@
-sudo: false
+lang: node_js
+node_js:
+  - node
 
 os:
   - osx
@@ -20,5 +22,6 @@ install:
   - npm run vscode:prepublish
 
 script:
+  - env
   - cd $TEST_DIR
   - npm test --silent
