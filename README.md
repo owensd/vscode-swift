@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/owensd/vscode-swift.svg?branch=master)](https://travis-ci.org/owensd/vscode-swift)
+
 ** NOTE: THIS IS A WORK IN PROGRESS!!!! **
 
 # vscode-swift
