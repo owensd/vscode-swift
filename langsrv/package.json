@@ -1,0 +1,20 @@
+{
+	"name": "vscode-swift-langsrv",
+	"description": "The language server for the vscode-swift extension.",
+	"version": "0.0.1",
+	"author": "David Owens II",
+	"license": "MIT",
+	"engines": {
+		"node": "*"
+	},
+	"dependencies": {
+		"vscode-languageserver": "^2.2.0"
+	},
+	"devDependencies": {
+		"typescript": "^1.8.9"
+	},
+	"scripts": {
+		"compile": "installServerIntoExtension ../extension ./package.json ./tsconfig.json && tsc -p .",
+		"watch": "installServerIntoExtension ../extension ./package.json ./tsconfig.json && tsc --watch -p ."
+	}
+}

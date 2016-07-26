@@ -1,0 +1,32 @@
+{
+	"name": "vscode-swift",
+	"description": "VSCode host for the Swift language service.",
+	"author": "David Owens II",
+	"license": "MIT",
+	"version": "0.0.1",
+	"publisher": "owensd.io",
+	"engines": {
+		"vscode": "^0.10.10"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onLanguage:swift"
+	],
+	"main": "./out/src/extension",
+	"scripts": {
+		"vscode:prepublish": "node ./node_modules/vscode/bin/compile",
+		"compile": "node ./node_modules/vscode/bin/compile -watch -p ./",
+		"postinstall": "node ./node_modules/vscode/bin/install"
+
+	},
+	"devDependencies": {
+		"typescript": "^1.8.9",
+		"vscode": "^0.11.0"
+	},
+	"dependencies": {
+		"vscode-languageclient": "^2.2.1"
+	},
+	"test": "node ./node_modules/vscode/bin/test"
+}

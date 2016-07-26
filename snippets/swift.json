@@ -1,8 +1,0 @@
-{
-	".source.swift": {
-		"package clause": {
-			"prefix": "pkg",
-			"body": "package ${1:name}"
-		}
-	}
-}
