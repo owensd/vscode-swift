@@ -4,10 +4,6 @@ node_js:
 
 os:
   - osx
-  - linux
-
-env:
-  - TEST_DIR=extension
 
 before_install:
   - if [ $TRAVIS_OS_NAME == "linux" ]; then
@@ -16,7 +12,6 @@ before_install:
       sleep 3;
     fi
   - echo "--- Environment ---" && env | sort && echo "--- End of Environment ---"
-  - cd $TEST_DIR
 
 install:
   - npm install

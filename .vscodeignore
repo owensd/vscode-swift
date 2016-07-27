@@ -1,0 +1,14 @@
+**/*.map
+.gitignore
+.travis.yml
+.vscode/**
+collateral/**
+images/**
+langsrv/**
+node_modules/**
+npm-debug.log
+out/test/**
+src/**
+test/**
+tsconfig.json
+typings/**

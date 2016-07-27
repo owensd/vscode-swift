@@ -1,0 +1,18 @@
+{
+	"compilerOptions": {
+		"target": "ES5",
+		"module": "commonjs",
+		"moduleResolution": "node",
+		"outDir": "out",
+		"noLib": true,
+		"sourceMap": true
+	},
+	"exclude": [
+		".vscode",
+		"collateral",
+		"images",
+		"langsrv",
+		"node_modules",
+		"out"
+	]
+}

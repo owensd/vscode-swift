@@ -1,0 +1,31 @@
+client:
+  name: swift-build
+tools: {}
+targets:
+  "test": ["<basic_project.module>","<basic_project.exe>"]
+  "main": ["<basic_project.module>","<basic_project.exe>"]
+default: "main"
+commands: 
+  "<basic_project.module>":
+    tool: swift-compiler
+    executable: "/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"
+    module-name: "basic_project"
+    module-output-path: "/Users/owensd/Projects/vscode-swift/collateral/swift-3.0-395e967875/basic/.build/debug/basic_project.swiftmodule"
+    inputs: []
+    outputs: ["<basic_project.module>","/Users/owensd/Projects/vscode-swift/collateral/swift-3.0-395e967875/basic/.build/debug/basic_project.build/Cards.swift.o","/Users/owensd/Projects/vscode-swift/collateral/swift-3.0-395e967875/basic/.build/debug/basic_project.build/main.swift.o"]
+    import-paths: ["/Users/owensd/Projects/vscode-swift/collateral/swift-3.0-395e967875/basic/.build/debug"]
+    temps-path: "/Users/owensd/Projects/vscode-swift/collateral/swift-3.0-395e967875/basic/.build/debug/basic_project.build"
+    objects: ["/Users/owensd/Projects/vscode-swift/collateral/swift-3.0-395e967875/basic/.build/debug/basic_project.build/Cards.swift.o","/Users/owensd/Projects/vscode-swift/collateral/swift-3.0-395e967875/basic/.build/debug/basic_project.build/main.swift.o"]
+    other-args: ["-j8","-D","SWIFT_PACKAGE","-Onone","-g","-enable-testing","-F","/Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-target","x86_64-apple-macosx10.10","-sdk","/Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk","-module-cache-path","/Users/owensd/Projects/vscode-swift/collateral/swift-3.0-395e967875/basic/.build/debug/ModuleCache"]
+    sources: ["/Users/owensd/Projects/vscode-swift/collateral/swift-3.0-395e967875/basic/Sources/Cards.swift","/Users/owensd/Projects/vscode-swift/collateral/swift-3.0-395e967875/basic/Sources/main.swift"]
+    is-library: false
+    enable-whole-module-optimization: false
+    num-threads: "8"
+
+  "<basic_project.exe>":
+    tool: shell
+    description: "Linking .build/debug/basic_project"
+    inputs: ["/Users/owensd/Projects/vscode-swift/collateral/swift-3.0-395e967875/basic/.build/debug/basic_project.build/Cards.swift.o","/Users/owensd/Projects/vscode-swift/collateral/swift-3.0-395e967875/basic/.build/debug/basic_project.build/main.swift.o"]
+    outputs: ["<basic_project.exe>","/Users/owensd/Projects/vscode-swift/collateral/swift-3.0-395e967875/basic/.build/debug/basic_project"]
+    args: ["/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc","-target","x86_64-apple-macosx10.10","-sdk","/Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk","-g","-L/Users/owensd/Projects/vscode-swift/collateral/swift-3.0-395e967875/basic/.build/debug","-o","/Users/owensd/Projects/vscode-swift/collateral/swift-3.0-395e967875/basic/.build/debug/basic_project","-F","/Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-emit-executable","/Users/owensd/Projects/vscode-swift/collateral/swift-3.0-395e967875/basic/.build/debug/basic_project.build/Cards.swift.o","/Users/owensd/Projects/vscode-swift/collateral/swift-3.0-395e967875/basic/.build/debug/basic_project.build/main.swift.o"]
+

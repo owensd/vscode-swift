@@ -1,0 +1,17 @@
+{
+  "": {
+    "swift-dependencies": "/Users/owensd/Projects/vscode-swift/collateral/swift-3.0-395e967875/basic/.build/debug/basic_project.build/master.swiftdeps"
+  },
+  "/Users/owensd/Projects/vscode-swift/collateral/swift-3.0-395e967875/basic/Sources/Cards.swift": {
+    "dependencies": "/Users/owensd/Projects/vscode-swift/collateral/swift-3.0-395e967875/basic/.build/debug/basic_project.build/Cards.d",
+    "object": "/Users/owensd/Projects/vscode-swift/collateral/swift-3.0-395e967875/basic/.build/debug/basic_project.build/Cards.swift.o",
+    "swiftmodule": "/Users/owensd/Projects/vscode-swift/collateral/swift-3.0-395e967875/basic/.build/debug/basic_project.build/Cards~partial.swiftmodule",
+    "swift-dependencies": "/Users/owensd/Projects/vscode-swift/collateral/swift-3.0-395e967875/basic/.build/debug/basic_project.build/Cards.swiftdeps"
+  },
+  "/Users/owensd/Projects/vscode-swift/collateral/swift-3.0-395e967875/basic/Sources/main.swift": {
+    "dependencies": "/Users/owensd/Projects/vscode-swift/collateral/swift-3.0-395e967875/basic/.build/debug/basic_project.build/main.d",
+    "object": "/Users/owensd/Projects/vscode-swift/collateral/swift-3.0-395e967875/basic/.build/debug/basic_project.build/main.swift.o",
+    "swiftmodule": "/Users/owensd/Projects/vscode-swift/collateral/swift-3.0-395e967875/basic/.build/debug/basic_project.build/main~partial.swiftmodule",
+    "swift-dependencies": "/Users/owensd/Projects/vscode-swift/collateral/swift-3.0-395e967875/basic/.build/debug/basic_project.build/main.swiftdeps"
+  }
+}

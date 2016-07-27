@@ -4,17 +4,26 @@
 	"version": "0.0.1",
 	"author": "David Owens II",
 	"license": "MIT",
+	"homepage": "https://github.com/owensd/vscode-swift/blob/master/README.md",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/owensd/vscode-swift.git"
+	},
 	"engines": {
 		"node": "*"
 	},
 	"dependencies": {
-		"vscode-languageserver": "^2.2.0"
 	},
 	"devDependencies": {
+		"vscode": "^0.11.14",
 		"typescript": "^1.8.9"
 	},
 	"scripts": {
 		"compile": "installServerIntoExtension ../extension ./package.json ./tsconfig.json && tsc -p .",
 		"watch": "installServerIntoExtension ../extension ./package.json ./tsconfig.json && tsc --watch -p ."
-	}
+	},
+	"activationEvents": [
+		"onLanguage:swift",
+		"workspaceContains:Package.swift"
+	]
 }

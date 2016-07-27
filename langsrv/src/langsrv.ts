@@ -6,9 +6,10 @@
 
 import {
 	IPCMessageReader, IPCMessageWriter,
-	createConnection, IConnection, TextDocumentSyncKind,
-	TextDocuments, TextDocument, Diagnostic, DiagnosticSeverity,
-	InitializeParams, InitializeResult, TextDocumentPositionParams,
+	createConnection, IConnection,
+	Diagnostic, DiagnosticSeverity,
+	TextDocument, TextDocuments, TextDocumentSyncKind, TextDocumentPositionParams,
+	InitializeParams, InitializeResult,
 	CompletionItem, CompletionItemKind
 } from 'vscode-languageserver';
 
