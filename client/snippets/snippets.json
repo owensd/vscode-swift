@@ -1,0 +1,170 @@
+{
+	"**": {
+		"prefix": "**",
+		"body": "/**\n  $1\n*/",
+		"description": "Documentation Block",
+		"scope": "source.swift"
+	},
+	"as": {
+		"prefix": "as",
+		"body": "associatedtype ${1:Foo}${2/.*(\\S).*|.*/(?1:\\: )/m}${2:ConformsTo}${3/.*(\\S).*|.*/(?1: = )/m}${3:Default}",
+		"description": "associatedtype",
+		"scope": "source.swift"
+	},
+	"ca": {
+		"prefix": "ca",
+		"body": "case ${1:pattern}:$0",
+		"description": "case",
+		"scope": "source.swift"
+	},
+	"cv": {
+		"prefix": "cv",
+		"body": "class var ${1:name}",
+		"description": "class var",
+		"scope": "source.swift"
+	},
+	"cl": {
+		"prefix": "cl",
+		"body": "class ${1:Box<Wrapped>}${2/.*(\\S).*|.*/(?1:\\: )/m}${2:Superclass, MyProtocol}${3/.*(\\S).*|.*/(?1: where )/m}${3:${1/.*<(\\w+).*>.*|.*/(?1:$1\\: ConformsTo)/m}} {\n\t$0\n}",
+		"description": "class",
+		"scope": "source.swift"
+	},
+	"de": {
+		"prefix": "de",
+		"body": "deinit {\n\t$1\n}",
+		"description": "deinit",
+		"scope": "source.swift"
+	},
+	"di": {
+		"prefix": "di",
+		"body": "didSet {\n\t$1\n}",
+		"description": "didSet",
+		"scope": "source.swift"
+	},
+	"el": {
+		"prefix": "el",
+		"body": "else${1/.*(\\S).*|.*/(?1: if )/m}${1:condition} {\n\t$2\n}",
+		"description": "else / else if",
+		"scope": "source.swift"
+	},
+	"en": {
+		"prefix": "en",
+		"body": "enum ${1:Box<Wrapped>}${2/.*(\\S).*|.*/(?1:\\: )/m}${2:MyProtocol}${3/.*(\\S).*|.*/(?1: where )/m}${3:${1/.*<(\\w+).*>.*|.*/(?1:$1\\: ConformsTo)/m}} {\n\t$0\n}",
+		"description": "enum",
+		"scope": "source.swift"
+	},
+	"ex": {
+		"prefix": "ex",
+		"body": "extension ${1:Foo}${2| where KeyType: CustomStringConvertible,: Equatable|} {\n\t$0\n}",
+		"description": "extension",
+		"scope": "source.swift"
+	},
+	"fixme": {
+		"prefix": "fixme",
+		"body": "// FIXME: ",
+		"description": "Fixme",
+		"scope": "source.swift"
+	},
+	"fu": {
+		"prefix": "fu",
+		"body": "func ${1:doSomething<Value>}(${2:with value: Value})${3/.+/ /m}${3:${2/.*\\b(throws)\\b.*|.*/(?1:re)/m}throws}${4/.+/ -> /m}${4:Result}${5/.*(\\S).*|.*/(?1: where )/m}${5:${1/.+<(\\w+).*>.*|.*/(?1:$1\\: ConformsTo)/m}} {\n\t$6\n}",
+		"description": "func",
+		"scope": "source.swift"
+	},
+	"if": {
+		"prefix": "if",
+		"body": "if ${1:condition} {\n\t$2\n}",
+		"description": "if",
+		"scope": "source.swift"
+	},
+	"im": {
+		"prefix": "im",
+		"body": "import ${1|Foundation,Cocoa,UIKit,CoreGraphics,WebKit|}",
+		"description": "import",
+		"scope": "source.swift"
+	},
+	"in": {
+		"prefix": "in",
+		"body": "init${1:?!<Value>}(${2:with value: Value})${3/.+/ /m}${3:${2/.*\\b(throws)\\b.*|.*/(?1:re)/m}throws}${4/.*(\\S).*|.*/(?1: where )/m}${4:${1/.*<(\\w+).*>.*|.*/(?1:$1\\: ConformsTo)/m}} {\n\t$5\n}",
+		"description": "init",
+		"scope": "source.swift"
+	},
+	"mark": {
+		"prefix": "mark",
+		"body": "// MARK: ",
+		"description": "Mark",
+		"scope": "source.swift"
+	},
+	"op": {
+		"prefix": "op",
+		"body": "${1|prefix,infix,postfix|} operator ${2:>>=}${3/.+/ : /}${3:MultiplicationPrecedence}",
+		"description": "operator",
+		"scope": "source.swift"
+	},
+	"param": {
+		"prefix": "param",
+		"body": ":param: ",
+		"description": "Param",
+		"scope": "comment.block.documentation.swiftdoc"
+	},
+	"pr": {
+		"prefix": "pr",
+		"body": "protocol ${1:Fooable}${2/.*(\\S).*|.*/(?1:\\: )/m}${2:ConformsTo} {\n\t$3\n}",
+		"description": "protocol",
+		"scope": "source.swift"
+	},
+	"returns": {
+		"prefix": "returns",
+		"body": ":returns: ",
+		"description": "Returns",
+		"scope": "text.restructuredtext.swiftdoc"
+	},
+	"swift": {
+		"prefix": "swift",
+		"body": "#!/usr/bin/env swift\n",
+		"description": "#!/usr/bin/env swift",
+		"scope": "L:dyn.caret.begin.document"
+	},
+	"sv": {
+		"prefix": "sv",
+		"body": "static var ${1:name}",
+		"description": "static var",
+		"scope": "source.swift"
+	},
+	"st": {
+		"prefix": "st",
+		"body": "struct ${1:Box<Wrapped>}${2/.*(\\S).*|.*/(?1:\\: )/m}${2:MyProtocol}${3/.*(\\S).*|.*/(?1: where )/m}${3:${1/.*<(\\w+).*>.*|.*/(?1:$1\\: ConformsTo)/m}} {\n\t$0\n}",
+		"description": "struct",
+		"scope": "source.swift"
+	},
+	"su": {
+		"prefix": "su",
+		"body": "subscript(${1:index: Int}) -> ${2:Value} {\n\tget {\n\t\t$3\n\t}${4/.+/\n\t/m}${4:set {\n\t\t$5\n\t\\}}\n}",
+		"description": "subscript",
+		"scope": "source.swift"
+	},
+	"sw": {
+		"prefix": "sw",
+		"body": "switch ${1:value} {\ncase ${2:pattern}:\n\t$3\n}",
+		"description": "switch",
+		"scope": "source.swift"
+	},
+	"todo": {
+		"prefix": "todo",
+		"body": "// TODO: ",
+		"description": "Todo",
+		"scope": "source.swift"
+	},
+	"ty": {
+		"prefix": "ty",
+		"body": "typealias ${1:Foo<Value>} = ${2:Bar<Key, Value>}",
+		"description": "typealias",
+		"scope": "source.swift"
+	},
+	"wi": {
+		"prefix": "wi",
+		"body": "willSet {\n\t$1\n}",
+		"description": "willSet",
+		"scope": "source.swift"
+	}
+}

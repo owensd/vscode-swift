@@ -16,6 +16,19 @@
 	],
 	"main": "./out/src/extension",
 	"contributes": {
+		"languages": [{
+			"id": "swift",
+			"extension": [".swift"]
+		}],
+		"grammars": [{
+			"language": "swift",
+			"scopeName": "source.swift",
+			"path": "./syntaxes/swift.tmLanguage"
+		}],
+		"snippets": [{
+			"language": "swift",
+			"path": "./snippets/snippets.json"
+		}],
 		"configuration": {
 			"type": "object",
 			"title": "Example configuration",
