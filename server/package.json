@@ -1,0 +1,21 @@
+{
+  "name": "swift-language-server",
+  "description": "Language server for Swift.",
+  "version": "0.0.1",
+  "author": "Kiad Studios, LLC",
+  "license": "MIT",
+  "engines": {
+    "node": "*"
+  },
+  "dependencies": {
+    "vscode-languageserver": "^3.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^6.0.52",
+    "typescript": "^2.1.5"
+  },
+  "scripts": {
+    "compile": "installServerIntoExtension ../client/out ./package.json ./tsconfig.json && tsc -p .",
+    "watch": "installServerIntoExtension ../client/out ./package.json ./tsconfig.json && tsc --watch -p ."
+  }
+}
