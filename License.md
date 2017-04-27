@@ -1,7 +1,7 @@
 The MIT License (MIT)
 ======================
 
-Copyright (c) 2015-2016 David Owens II (owensd.io)
+Copyright (c) 2017 Kiad Studios, LLC.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

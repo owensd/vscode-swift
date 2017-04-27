@@ -1,0 +1,11 @@
+// Place your settings in this file to overwrite the default settings
+{
+	"editor.insertSpaces": false,
+	"files.exclude": {
+		"out": false
+	},
+	"search.exclude": {
+		"out": true
+	},
+	"typescript.tsdk": "./node_modules/typescript/lib"
+}
