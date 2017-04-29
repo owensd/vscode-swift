@@ -37,10 +37,10 @@ function registerSwiftBugLinkProvider(context: ExtensionContext) {
 	context.subscriptions.push(disposableSwiftBugLinkProvider);
 }
 
-// Launches the Swift Language Service tool.
-function registerSwiftLanguageService(context: ExtensionContext) {
+// Launches the Swift Language Server tool.
+function registerSwiftLanguageServer(context: ExtensionContext) {
 	let config = workspace.getConfiguration(languageServerId);
-	let langsrvPath = config.get('languageServicePath', './lib/macos/swift-langsrv');
+	let langsrvPath = config.get('languageServerPath', './lib/macos/swift-langsrv');
 	let debugOptions = ["--nolazy", "--debug=6009"];
 
 	fs.exists(langsrvPath, (exists: boolean) => {
@@ -58,11 +58,11 @@ function registerSwiftLanguageService(context: ExtensionContext) {
 				}
 			}
 			
-			let swiftLanguageService = new LanguageClient(languageServerId, 'Swift Language Service', serverOptions, clientOptions);
-			context.subscriptions.push(swiftLanguageService.start());
+			let swiftLanguageServer = new LanguageClient(languageServerId, 'Swift Language Server', serverOptions, clientOptions);
+			context.subscriptions.push(swiftLanguageServer.start());
 		}
 		else {
-			window.showErrorMessage('There was no language service tool at the given path: ' + langsrvPath);
+			window.showErrorMessage('There was no language server tool at the given path: ' + langsrvPath);
 		}
 	});
 }
@@ -73,6 +73,6 @@ export function activate(context: ExtensionContext) {
 	let enableBugLinks = config.get('enableSwiftBugLinks', true);
 	if (enableBugLinks) { registerSwiftBugLinkProvider(context); }
 
-	let enableLanguageService = config.get('enableLanguageService', true);
-	if (enableLanguageService) { registerSwiftLanguageService(context); }
+	let enableLanguageServer = config.get('enableLanguageServer', true);
+	if (enableLanguageServer) { registerSwiftLanguageServer(context); }
 }

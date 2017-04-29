@@ -9,5 +9,5 @@ face it, Xcode is imply not a joy to use.
 The extension is broken up into parts:
 
   1. `client` - this is loaded into the VS Code process. It serves as the bridging
-     mechanism between VS Code and the language service.
-  2. `server` - the out-of-process language service used by the extension.
+     mechanism between VS Code and the language server.
+  2. `server` - the out-of-process language server used by the extension.
