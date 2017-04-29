@@ -1,0 +1,15 @@
+// Place your settings in this file to overwrite the default settings
+{
+	"files.exclude": {
+		".build": true,
+        "out": false,
+        "node_modules": true
+	},
+	"search.exclude": {
+		".build": true,
+        "out": true,
+        "node_modules": true
+	},
+	"cSpell.enabled": true,
+    "typescript.tsdk": "./node_modules/typescript/lib"
+}

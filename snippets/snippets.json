@@ -1,0 +1,77 @@
+{
+	"ca": {
+		"prefix": "ca",
+		"body": "case ${1:pattern}:$0",
+		"description": "case"
+	},
+	"cv": {
+		"prefix": "cv",
+		"body": "class var ${1:name}",
+		"description": "class var"
+	},
+	"de": {
+		"prefix": "de",
+		"body": "deinit {\n\t$1\n}",
+		"description": "deinit"
+	},
+	"di": {
+		"prefix": "di",
+		"body": "didSet {\n\t$1\n}",
+		"description": "didSet"
+	},
+	"fixme": {
+		"prefix": "fixme",
+		"body": "// FIXME: ",
+		"description": "Fixme"
+	},
+	"jira": {
+		"prefix": "jira",
+		"body": "SwiftBug(SR-${1})",
+		"description": "SwiftBug(SR-####)"
+	},
+	"mark": {
+		"prefix": "mark",
+		"body": "// MARK: ",
+		"description": "Mark"
+	},
+	"param": {
+		"prefix": "param",
+		"body": ":param: ",
+		"description": "Param"
+	},
+	"returns": {
+		"prefix": "returns",
+		"body": ":returns: ",
+		"description": "Returns"
+	},
+	"swift": {
+		"prefix": "swift",
+		"body": "#!/usr/bin/env swift\n",
+		"description": "#!/usr/bin/env swift"
+	},
+	"sv": {
+		"prefix": "sv",
+		"body": "static var ${1:name}",
+		"description": "static var"
+	},
+	"sw": {
+		"prefix": "sw",
+		"body": "switch ${1:value} {\ncase ${2:pattern}:\n\t$3\n}",
+		"description": "switch"
+	},
+	"todo": {
+		"prefix": "todo",
+		"body": "// TODO: ",
+		"description": "Todo"
+	},
+	"ty": {
+		"prefix": "ty",
+		"body": "typealias ${1:Foo<Value>} = ${2:Bar<Key, Value>}",
+		"description": "typealias"
+	},
+	"wi": {
+		"prefix": "wi",
+		"body": "willSet {\n\t$1\n}",
+		"description": "willSet"
+	}
+}

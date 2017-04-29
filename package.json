@@ -3,13 +3,15 @@
 	"description": "VSCode host for the Swift language service.",
 	"author": "David Owens II",
 	"license": "MIT",
-	"version": "0.0.1",
-	"publisher": "kiad studios, llc",
+	"version": "0.1.0",
+	"publisher": "kiadstudios",
 	"engines": {
 		"vscode": "^1.8.0"
 	},
 	"categories": [
-		"Other"
+		"Languages",
+		"Debuggers",
+		"Snippets"
 	],
 	"activationEvents": [
 		"onLanguage:swift"
@@ -31,22 +33,22 @@
 		}],
 		"configuration": {
 			"type": "object",
-			"title": "Example configuration",
+			"title": "Swift Language Service Configuration",
 			"properties": {
-				"languageServerExample.maxNumberOfProblems": {
-					"type": "number",
-					"default": 100,
-					"description": "Controls the maximum number of problems produced by the server."
-				},
-				"languageServerExample.trace.server": {
+				"swift-langsrv.languageServicePath": {
 					"type": "string",
-					"enum": [
-						"off",
-						"messages",
-						"verbose"
-					],
-					"default": "off",
-					"description": "Traces the communication between VSCode and the languageServerExample service."
+					"default": "./lib/macos/swift-langsrv",
+					"description": "The path to the Swift Language Service utility."
+				},
+				"swift-langsrv.enableLanguageService": {
+					"type": "bool",
+					"default": true,
+					"description": "Option to turn off the language service."
+				},
+				"swift-langsrv.enableSwiftBugLinks": {
+					"type": "bool",
+					"default": true,
+					"description": "Option to turn off Swift JIRA but linking."
 				}
 			}
 		}
