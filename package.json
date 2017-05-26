@@ -49,6 +49,16 @@
 					"type": "bool",
 					"default": true,
 					"description": "Option to turn off Swift JIRA but linking."
+				},
+				"swift-langsrv.sourcekittenPath": {
+					"type": "string",
+					"default": "./lib/macos/$swiftver/sourcekitten",
+					"description": "The path to the SourceKitten binary."
+				},
+				"swift-langsrv.swiftVersion": {
+					"type": "string",
+					"default": "latest",
+					"description": "The version of Swift to use. Use `latest` for the most recent version installed on the machine."
 				}
 			}
 		}

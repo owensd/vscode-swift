@@ -10,6 +10,5 @@
         "out": true,
         "node_modules": true
 	},
-	"cSpell.enabled": true,
-    "typescript.tsdk": "./node_modules/typescript/lib"
+	"cSpell.enabled": true
 }
