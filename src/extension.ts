@@ -40,7 +40,7 @@ function registerSwiftBugLinkProvider(context: ExtensionContext) {
 // Launches the Swift Language Server tool.
 function registerSwiftLanguageServer(context: ExtensionContext) {
 	let config = workspace.getConfiguration(languageServerId);
-	let langsrvPath = config.get('languageServerPath', './lib/macos/swift-langsrv');
+	let langsrvPath = config.get('languageServerPath', '/usr/local/bin/swift-langsrv');
 	let debugOptions = ["--nolazy", "--debug=6009"];
 
 	fs.exists(langsrvPath, (exists: boolean) => {

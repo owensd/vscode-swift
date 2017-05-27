@@ -3,7 +3,7 @@
 	"description": "VSCode host for the Swift language server.",
 	"author": "David Owens II",
 	"license": "MIT",
-	"version": "0.2.1",
+	"version": "0.3.0",
 	"publisher": "kiadstudios",
 	"engines": {
 		"vscode": "^1.8.0"
@@ -37,7 +37,7 @@
 			"properties": {
 				"swift-langsrv.languageServerPath": {
 					"type": "string",
-					"default": "./lib/macos/swift-langsrv",
+					"default": "/usr/local/bin/swift-langsrv",
 					"description": "The path to the Swift Language Server utility."
 				},
 				"swift-langsrv.enableLanguageServer": {
@@ -52,13 +52,13 @@
 				},
 				"swift-langsrv.sourcekittenPath": {
 					"type": "string",
-					"default": "./lib/macos/$swiftver/sourcekitten",
+					"default": "/usr/local/bin/sourcekitten",
 					"description": "The path to the SourceKitten binary."
 				},
-				"swift-langsrv.swiftVersion": {
+				"swift-langsrv.toolchainPath": {
 					"type": "string",
-					"default": "latest",
-					"description": "The version of Swift to use. Use `latest` for the most recent version installed on the machine."
+					"default": "/Library/Developer/Toolchains/swift-latest.xctoolchain",
+					"description": "The toolchain path for the version of Swift to be used."
 				}
 			}
 		}
