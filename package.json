@@ -35,27 +35,27 @@
 			"type": "object",
 			"title": "Swift Language Server Configuration",
 			"properties": {
-				"swift-langsrv.languageServerPath": {
+				"swift.languageServerPath": {
 					"type": "string",
-					"default": "/usr/local/bin/swift-langsrv",
+					"default": "lib/usr/bin/langsrv",
 					"description": "The path to the Swift Language Server utility."
 				},
-				"swift-langsrv.enableLanguageServer": {
+				"swift.enableLanguageServer": {
 					"type": "bool",
 					"default": true,
 					"description": "Option to turn off the language server."
 				},
-				"swift-langsrv.enableSwiftBugLinks": {
+				"swift.enableSwiftBugLinks": {
 					"type": "bool",
 					"default": true,
 					"description": "Option to turn off Swift JIRA but linking."
 				},
-				"swift-langsrv.sourcekittenPath": {
+				"swift.sourcekittenPath": {
 					"type": "string",
-					"default": "/usr/local/bin/sourcekitten",
+					"default": "lib/usr/bin/sourcekitten",
 					"description": "The path to the SourceKitten binary."
 				},
-				"swift-langsrv.toolchainPath": {
+				"swift.toolchainPath": {
 					"type": "string",
 					"default": "/Library/Developer/Toolchains/swift-latest.xctoolchain",
 					"description": "The toolchain path for the version of Swift to be used."

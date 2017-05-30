@@ -7,10 +7,18 @@
 import * as path from 'path';
 import * as fs from 'fs';
 
-import { window, languages, workspace, Uri, Range, Disposable, ExtensionContext, TextDocument, CancellationToken, DocumentLink } from 'vscode';
+import { window, languages, workspace, Uri, Range, Disposable, ExtensionContext, TextDocument, CancellationToken, DocumentLink, extensions } from 'vscode';
 import { LanguageClient, LanguageClientOptions, SettingMonitor, ServerOptions, TransportKind } from 'vscode-languageclient';
 
-let languageServerId = 'swift-langsrv';
+let languageServerId = 'swift';
+
+function normalize(path: string): string {
+	if (path.charAt(0) != '/') {
+		let extensionPath = extensions.getExtension('kiadstudios.vscode-swift').extensionPath;
+		return extensionPath + '/' + path
+	}
+	return path
+}
 
 function registerSwiftBugLinkProvider(context: ExtensionContext) {
 	// Provides easy access to Swift bugs.
@@ -40,7 +48,7 @@ function registerSwiftBugLinkProvider(context: ExtensionContext) {
 // Launches the Swift Language Server tool.
 function registerSwiftLanguageServer(context: ExtensionContext) {
 	let config = workspace.getConfiguration(languageServerId);
-	let langsrvPath = config.get('languageServerPath', '/usr/local/bin/swift-langsrv');
+	let langsrvPath = normalize(config.get('languageServerPath', 'lib/usr/bin/langsrv'));
 	let debugOptions = ["--nolazy", "--debug=6009"];
 
 	fs.exists(langsrvPath, (exists: boolean) => {

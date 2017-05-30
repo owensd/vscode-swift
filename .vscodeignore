@@ -1,0 +1,5 @@
+**/*.ts
+**/tsconfig.json
+!file.ts
+test/**
+out/test/**
