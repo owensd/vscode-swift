@@ -3,7 +3,7 @@
 	"description": "VSCode host for the Swift language server.",
 	"author": "David Owens II",
 	"license": "MIT",
-	"version": "0.3.0",
+	"version": "0.4.1",
 	"publisher": "kiadstudios",
 	"engines": {
 		"vscode": "^1.8.0"
