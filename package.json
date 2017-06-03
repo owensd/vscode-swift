@@ -1,10 +1,11 @@
 {
-	"name": "vscode-swift",
-	"description": "Visual Studio Code host for the Swift language server.",
+	"name": "Swifty",
+	"description": "Provides rich language support for Swift PM projects in Visual Studio Code.",
 	"author": "David Owens II",
 	"license": "MIT",
 	"version": "0.5.0",
 	"publisher": "kiadstudios",
+	"preview": true,
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/owensd/vscode-swift"
