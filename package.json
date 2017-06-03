@@ -1,16 +1,19 @@
 {
 	"name": "vscode-swift",
-	"description": "VSCode host for the Swift language server.",
+	"description": "Visual Studio Code host for the Swift language server.",
 	"author": "David Owens II",
 	"license": "MIT",
-	"version": "0.4.1",
+	"version": "0.5.0",
 	"publisher": "kiadstudios",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/owensd/vscode-swift"
+	},
 	"engines": {
 		"vscode": "^1.8.0"
 	},
 	"categories": [
 		"Languages",
-		"Debuggers",
 		"Snippets"
 	],
 	"activationEvents": [
@@ -49,11 +52,6 @@
 					"type": "bool",
 					"default": true,
 					"description": "Option to turn off Swift JIRA but linking."
-				},
-				"swift.sourcekittenPath": {
-					"type": "string",
-					"default": "lib/usr/bin/sourcekitten",
-					"description": "The path to the SourceKitten binary."
 				},
 				"swift.toolchainPath": {
 					"type": "string",
