@@ -1,3 +1,6 @@
+## 0.5.5 - June 3, 2017
+ - Packaged a new `langsrv` that fixes some `@rpath` issues that pointed to local user folders.
+
 ## 0.5.4 - June 3, 2017
  - Packaged a new `langsrv` tool that fixes some completion item errors on unsaved buffers,
    including a bug when at the end of the document.
