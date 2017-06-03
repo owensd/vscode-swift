@@ -14,7 +14,7 @@ let languageServerId = 'swift';
 
 function normalize(path: string): string {
 	if (path.charAt(0) != '/') {
-		let extensionPath = extensions.getExtension('kiadstudios.vscode-swift').extensionPath;
+		let extensionPath = extensions.getExtension('kiadstudios.Apous').extensionPath;
 		return extensionPath + '/' + path
 	}
 	return path

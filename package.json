@@ -1,9 +1,9 @@
 {
-	"name": "Swifty",
+	"name": "Apous",
 	"description": "Provides rich language support for Swift PM projects in Visual Studio Code.",
 	"author": "David Owens II",
 	"license": "MIT",
-	"version": "0.5.0",
+	"version": "0.5.2",
 	"publisher": "kiadstudios",
 	"preview": true,
 	"repository": {
@@ -19,6 +19,9 @@
 	],
 	"activationEvents": [
 		"onLanguage:swift"
+	],
+	"keywords": [
+		"swift", "ios", "macos", "apple", "ide"
 	],
 	"main": "./out/src/extension",
 	"contributes": {
