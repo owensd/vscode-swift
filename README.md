@@ -1,4 +1,4 @@
-# Swift for Visual Studio Code
+# Apous - Swift for Visual Studio Code
 
 An extension for VS Code which provides support for the Swift language, providing the following:
 
@@ -27,13 +27,14 @@ configure your project to use the correct version of Swift with the `swift-langs
 > unsupported. The problem is that the SourceKit binary may simply not load for mis-matched versions
 > of Swift.
 >
->   `kiad.swift.toolchainPath` - the path to the root of the Swift toolchain, for example:
->                                `/Library/Developer/Toolchains/swift-3.1.1-RELEASE.xctoolchain`
+>   `swift.toolchainPath` - the path to the root of the Swift toolchain, for example:
+>                           `/Library/Developer/Toolchains/swift-3.1.1-RELEASE.xctoolchain`
 
 ### macOS
 
 If you have the correct version of Swift installed, there is no other action necessary as all of the
 dependencies are installed for you.
+
 
 ### Linux (in progress)
 
