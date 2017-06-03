@@ -1,5 +1,7 @@
 **/*.ts
 **/tsconfig.json
-!file.ts
 test/**
 out/test/**
+
+!file.ts
+!lib/usr/bin/langsrv
