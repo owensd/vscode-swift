@@ -2,6 +2,3 @@
 **/tsconfig.json
 test/**
 out/test/**
-
-!file.ts
-!lib/usr/bin/langsrv
