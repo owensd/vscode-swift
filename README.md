@@ -1,4 +1,4 @@
-# Apous - Swift for Visual Studio Code
+# Swift for Visual Studio Code
 
 An extension for VS Code which provides support for the Swift language, providing the following:
 

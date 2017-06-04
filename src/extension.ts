@@ -13,13 +13,13 @@ import { window, languages, workspace, commands, Uri, Range, Disposable, Extensi
 import { LanguageClient, LanguageClientOptions, SettingMonitor, ServerOptions, TransportKind } from 'vscode-languageclient';
 
 let languageServerId = 'swift';
+let extensionPath = '';
 
 // The version of the language server known to work with this extension.
-let languageServerAssetsUrl = "https://github.com/owensd/swift-langsrv/releases/download/v0.14.0/apous-macos-v0.14.0.zip"
+let languageServerAssetsUrl = "https://github.com/owensd/swift-langsrv/releases/download/v0.14.1/langsrv-macos-0.14.1.zip"
 
 function normalize(path: string): string {
 	if (path.charAt(0) != '/') {
-		let extensionPath = extensions.getExtension('kiadstudios.apous').extensionPath;
 		return extensionPath + '/' + path
 	}
 	return path
@@ -79,45 +79,48 @@ function registerSwiftLanguageServer(context: ExtensionContext) {
 		else {
 			// download the language server
 			let tmpPath = normalize('tmp');
-			let libPath = normalize('lib/usr/bin');
+			let libPath = normalize(path.join('lib', 'usr', 'bin'));
 			if (!fs.existsSync(tmpPath)) { fs.mkdirSync(tmpPath); }
 			if (!fs.existsSync(libPath)) {
 				fs.mkdirSync(normalize('lib'));
-				fs.mkdirSync(normalize('lib/usr'));
-				fs.mkdirSync(normalize('lib/usr/bin'));
+				fs.mkdirSync(normalize(path.join('lib', 'usr')));
+				fs.mkdirSync(libPath);
 			}
 
-			let channel = window.createOutputChannel("Apous");
+			let tmpAssetsPath = path.join(tmpPath, 'assets.zip');
+			let channel = window.createOutputChannel("Swift");
 			channel.appendLine('Downloading Language Server assets from ' + languageServerAssetsUrl);
 			channel.show();
+
 			request(languageServerAssetsUrl)
-				.pipe(fs.createWriteStream(tmpPath + '/assets.zip'))
+				.pipe(fs.createWriteStream(tmpAssetsPath))
 				.on('close', function () {
-					channel.appendLine('Assets downloaded to: ' + tmpPath + '/assets.zip');
+					channel.appendLine('Assets downloaded to: ' + tmpAssetsPath);
 					channel.appendLine('Extracting assets to ' + libPath);
 
-					fs.createReadStream(tmpPath + '/assets.zip')
+					fs.createReadStream(tmpAssetsPath)
 						.pipe(unzip.Extract({path: libPath}))
 							.on('close', function () {
-								fs.chmod(libPath + '/langsrv', "755");
+								fs.chmod(path.join(libPath, 'langsrv'), "755");
 								window.showInformationMessage('You will need to reload the window to load the language server.', 'Reload Window')
 									.then(function (value) {
 										commands.executeCommand('workbench.action.reloadWindow');
 									});				
 							})
-							.on('error', function () {
-								window.showErrorMessage('There was an error unpacking the language server assets from: ' + tmpPath + '/assets.zip');
+							.on('error', function (e) {
+								channel.appendLine('Error: ' + e);
+								window.showErrorMessage('There was an error unpacking the language server assets from: ' + tmpAssetsPath);
 							});
 				})
 				.on('error', function () {
 					window.showErrorMessage('There was an error downloading the language server from: ' + languageServerAssetsUrl);
 				});
-
 		}
 	});
 }
 
 export function activate(context: ExtensionContext) {
+	extensionPath = context.extensionPath;
 	let config = workspace.getConfiguration(languageServerId);
 
 	let enableBugLinks = config.get('enableSwiftBugLinks', true);

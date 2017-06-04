@@ -1,6 +1,6 @@
 {
-	"name": "apous",
-	"displayName": "Apous",
+	"name": "vscode-swift",
+	"displayName": "Swift for Visual Studio Code",
 	"description": "Provides rich language support for Swift PM projects in Visual Studio Code.",
 	"author": "David Owens II",
 	"license": "MIT",
@@ -25,6 +25,16 @@
 		"swift", "ios", "macos", "apple", "ide"
 	],
 	"main": "./out/src/extension",
+	"files": [
+		"CHANGELOG.md",
+		"images/**",
+		"node_modules/**",
+		"out/**",
+		"package.json",
+		"README.md",
+		"snippets/**",
+		"syntaxes/**"
+	],
 	"contributes": {
 		"languages": [{
 			"id": "swift",
@@ -80,6 +90,7 @@
 	},
 	"dependencies": {
 		"vscode-languageclient": "^3.1.0",
-		"unzip": "^0.1.11"
+		"unzip": "^0.1.11",
+		"request": "^2.81.0"
 	}
 }

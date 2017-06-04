@@ -4,3 +4,4 @@ test/**
 out/test/**
 lib/**
 tmp/**
+*.vsix
