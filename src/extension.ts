@@ -6,15 +6,20 @@
 
 import * as path from 'path';
 import * as fs from 'fs';
+import * as request from 'request';
+import * as unzip from 'unzip';
 
-import { window, languages, workspace, Uri, Range, Disposable, ExtensionContext, TextDocument, CancellationToken, DocumentLink, extensions } from 'vscode';
+import { window, languages, workspace, commands, Uri, Range, Disposable, ExtensionContext, TextDocument, CancellationToken, DocumentLink, extensions } from 'vscode';
 import { LanguageClient, LanguageClientOptions, SettingMonitor, ServerOptions, TransportKind } from 'vscode-languageclient';
 
 let languageServerId = 'swift';
 
+// The version of the language server known to work with this extension.
+let languageServerAssetsUrl = "https://github.com/owensd/swift-langsrv/releases/download/v0.14.0/apous-macos-v0.14.0.zip"
+
 function normalize(path: string): string {
 	if (path.charAt(0) != '/') {
-		let extensionPath = extensions.getExtension('kiadstudios.Apous').extensionPath;
+		let extensionPath = extensions.getExtension('kiadstudios.apous').extensionPath;
 		return extensionPath + '/' + path
 	}
 	return path
@@ -53,6 +58,8 @@ function registerSwiftLanguageServer(context: ExtensionContext) {
 
 	fs.exists(langsrvPath, (exists: boolean) => {
 		if (exists) {
+			// TODO(owensd): Think about doing PATCH level updates here.
+
 			let serverOptions: ServerOptions = {
 				run : { command: langsrvPath },
 				debug: { command: langsrvPath, args: debugOptions }
@@ -70,7 +77,42 @@ function registerSwiftLanguageServer(context: ExtensionContext) {
 			context.subscriptions.push(swiftLanguageServer.start());
 		}
 		else {
-			window.showErrorMessage('There was no language server tool at the given path: ' + langsrvPath);
+			// download the language server
+			let tmpPath = normalize('tmp');
+			let libPath = normalize('lib/usr/bin');
+			if (!fs.existsSync(tmpPath)) { fs.mkdirSync(tmpPath); }
+			if (!fs.existsSync(libPath)) {
+				fs.mkdirSync(normalize('lib'));
+				fs.mkdirSync(normalize('lib/usr'));
+				fs.mkdirSync(normalize('lib/usr/bin'));
+			}
+
+			let channel = window.createOutputChannel("Apous");
+			channel.appendLine('Downloading Language Server assets from ' + languageServerAssetsUrl);
+			channel.show();
+			request(languageServerAssetsUrl)
+				.pipe(fs.createWriteStream(tmpPath + '/assets.zip'))
+				.on('close', function () {
+					channel.appendLine('Assets downloaded to: ' + tmpPath + '/assets.zip');
+					channel.appendLine('Extracting assets to ' + libPath);
+
+					fs.createReadStream(tmpPath + '/assets.zip')
+						.pipe(unzip.Extract({path: libPath}))
+							.on('close', function () {
+								fs.chmod(libPath + '/langsrv', "755");
+								window.showInformationMessage('You will need to reload the window to load the language server.', 'Reload Window')
+									.then(function (value) {
+										commands.executeCommand('workbench.action.reloadWindow');
+									});				
+							})
+							.on('error', function () {
+								window.showErrorMessage('There was an error unpacking the language server assets from: ' + tmpPath + '/assets.zip');
+							});
+				})
+				.on('error', function () {
+					window.showErrorMessage('There was an error downloading the language server from: ' + languageServerAssetsUrl);
+				});
+
 		}
 	});
 }
