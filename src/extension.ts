@@ -16,7 +16,7 @@ let languageServerId = 'swift';
 let extensionPath = '';
 
 // The version of the language server known to work with this extension.
-let languageServerAssetsUrl = "https://github.com/owensd/swift-langsrv/releases/download/v0.14.1/langsrv-macos-0.14.1.zip"
+let languageServerAssetsUrl = "https://github.com/owensd/swift-langsrv/releases/download/v0.15.0/langsrv-macos-v0.15.0.zip"
 
 function normalize(path: string): string {
 	if (path.charAt(0) != '/') {

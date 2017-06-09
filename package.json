@@ -4,7 +4,7 @@
 	"description": "Provides rich language support for Swift PM projects in Visual Studio Code.",
 	"author": "David Owens II",
 	"license": "MIT",
-	"version": "0.6.0",
+	"version": "0.7.0",
 	"publisher": "kiadstudios",
 	"preview": true,
 	"repository": {
