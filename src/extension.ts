@@ -16,7 +16,7 @@ let languageServerId = 'swift';
 let extensionPath = '';
 
 // The version of the language server known to work with this extension.
-let languageServerAssetsUrl = "https://github.com/owensd/swift-langsrv/releases/download/v0.15.0/langsrv-macos-v0.15.0.zip"
+let languageServerAssetsUrl = "https://github.com/owensd/swift-langsrv/releases/download/v0.16.1/langsrv-macos-v0.16.1.zip"
 
 function normalize(path: string): string {
 	if (path.charAt(0) != '/') {
@@ -69,7 +69,7 @@ function registerSwiftLanguageServer(context: ExtensionContext) {
 				documentSelector: ['swift'],
 				synchronize: {
 					configurationSection: languageServerId,
-					fileEvents: workspace.createFileSystemWatcher('**/.swift')
+					fileEvents: workspace.createFileSystemWatcher('**/.swift'),
 				}
 			}
 			
